@@ -1,0 +1,9 @@
+import random
+def rolar_dados (n):
+    i=0
+    dados=[]
+    while i<n:
+        num=random.randint(1,6)
+        dados.append(num)
+        i+=1
+    return dados
