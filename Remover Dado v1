@@ -1,0 +1,4 @@
+def remover_dado(rolados,estoque,índice):
+    rolados.append(estoque[índice])
+    del estoque[índice]
+    return [rolados,estoque]
