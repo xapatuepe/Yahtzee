@@ -1,0 +1,4 @@
+def guardar_dado(rolados,estoque,índice):
+    estoque.append(rolados[índice])
+    del rolados[índice]
+    return [rolados,estoque]
