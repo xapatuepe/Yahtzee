@@ -1,0 +1,16 @@
+def calcula_pontos_soma(rolados):
+    soma=0
+    for num in rolados:
+        if num == 1:
+            soma+=1
+        elif num ==2:
+            soma+=2
+        elif num ==3:
+            soma+=3
+        elif num ==4:
+            soma+=4
+        elif num==5:
+            soma+=5
+        elif num==6:
+            soma+=6
+    return soma
