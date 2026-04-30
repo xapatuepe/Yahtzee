@@ -1,0 +1,24 @@
+def calcula_pontos_sequencia_alta(rolados):
+    um = 0
+    dois = 0
+    tres = 0
+    quatro = 0
+    cinco = 0
+    seis = 0
+    for num in rolados:
+        if num == 1:
+            um+=1
+        elif num ==2:
+            dois+=1
+        elif num ==3:
+            tres+=1
+        elif num ==4:
+            quatro+=1
+        elif num==5:
+            cinco+=1
+        elif num==6:
+            seis+=1
+    if um and dois and tres and quatro and cinco != 0 or dois and tres and quatro and cinco and seis != 0:
+        return 30
+    else:
+        return 0
