@@ -1,0 +1,29 @@
+def calcula_pontos_sequencia_alta(rolados):
+    um = 0
+    dois = 0
+    tres = 0
+    quatro = 0
+    cinco = 0
+    seis = 0
+    for num in rolados:
+        if num == 1:
+            um+=1
+        elif num ==2:
+            dois+=1
+        elif num ==3:
+            tres+=1
+        elif num ==4:
+            quatro+=1
+        elif num==5:
+            cinco+=1
+        elif num==6:
+            seis+=1
+    contagens = [um,dois,tres,quatro,cinco,seis]
+    for triplo in contagens:
+        if triplo == 3:
+            pontosTriplo = (contagens.index(triplo)+1)*3
+            for duplo in contagens:
+                if duplo == 2:
+                    pontosDuplo = (contagens.index(duplo)+1)*2
+                    pontosFull = pontosTriplo+pontosDuplo
+    return pontosFull
