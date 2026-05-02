@@ -1,0 +1,160 @@
+def calcula_pontos_quina(rolados):
+    um = 0
+    dois = 0
+    tres = 0
+    quatro = 0
+    cinco = 0
+    seis = 0
+    for num in rolados:
+        if num == 1:
+            um+=1
+        elif num ==2:
+            dois+=1
+        elif num ==3:
+            tres+=1
+        elif num ==4:
+            quatro+=1
+        elif num==5:
+            cinco+=1
+        elif num==6:
+            seis+=1
+    contagens = [um,dois,tres,quatro,cinco,seis]
+    for quin in contagens:
+        if quin >= 5:
+            return 50
+    return 0
+
+def calcula_pontos_full_house(rolados):
+    um = 0
+    dois = 0
+    tres = 0
+    quatro = 0
+    cinco = 0
+    seis = 0
+    pontosFull=0
+    for num in rolados:
+        if num == 1:
+            um+=1
+        elif num ==2:
+            dois+=1
+        elif num ==3:
+            tres+=1
+        elif num ==4:
+            quatro+=1
+        elif num==5:
+            cinco+=1
+        elif num==6:
+            seis+=1
+    contagens = [um,dois,tres,quatro,cinco,seis]
+    for triplo in contagens:
+        if triplo == 3:
+            pontosTriplo = (contagens.index(triplo)+1)*3
+            for duplo in contagens:
+                if duplo == 2:
+                    pontosDuplo = (contagens.index(duplo)+1)*2
+                    pontosFull = pontosTriplo+pontosDuplo
+    return pontosFull
+
+def calcula_pontos_quadra(rolados):
+    um = 0
+    dois = 0
+    tres = 0
+    quatro = 0
+    cinco = 0
+    seis = 0
+    soma=0
+    for num in rolados:
+        if num == 1:
+            um+=1
+            soma+=1
+        elif num ==2:
+            dois+=1
+            soma+=2
+        elif num ==3:
+            tres+=1
+            soma+=3
+        elif num ==4:
+            quatro+=1
+            soma+=4
+        elif num==5:
+            cinco+=1
+            soma+=5
+        elif num==6:
+            seis+=1
+            soma+=6
+    contagens = [um,dois,tres,quatro,cinco,seis]
+    for quad in contagens:
+        if quad >= 4:
+            return soma
+    return 0
+
+def calcula_pontos_soma(rolados):
+    soma=0
+    for num in rolados:
+        if num == 1:
+            soma+=1
+        elif num ==2:
+            soma+=2
+        elif num ==3:
+            soma+=3
+        elif num ==4:
+            soma+=4
+        elif num==5:
+            soma+=5
+        elif num==6:
+            soma+=6
+    return soma
+
+def calcula_pontos_sequencia_alta(rolados):
+    um = 0
+    dois = 0
+    tres = 0
+    quatro = 0
+    cinco = 0
+    seis = 0
+    for num in rolados:
+        if num == 1:
+            um+=1
+        elif num ==2:
+            dois+=1
+        elif num ==3:
+            tres+=1
+        elif num ==4:
+            quatro+=1
+        elif num==5:
+            cinco+=1
+        elif num==6:
+            seis+=1
+    if um and dois and tres and quatro and cinco != 0 or dois and tres and quatro and cinco and seis != 0:
+        return 30
+    else:
+        return 0
+    
+def calcula_pontos_sequencia_baixa(rolados):
+    um = 0
+    dois = 0
+    tres = 0
+    quatro = 0
+    cinco = 0
+    seis = 0
+    for num in rolados:
+        if num == 1:
+            um+=1
+        elif num ==2:
+            dois+=1
+        elif num ==3:
+            tres+=1
+        elif num ==4:
+            quatro+=1
+        elif num==5:
+            cinco+=1
+        elif num==6:
+            seis+=1
+    if um and dois and tres and quatro != 0 or dois and tres and quatro and cinco != 0 or dois and tres and quatro and cinco and seis != 0:
+        return 15
+    else:
+        return 0
+
+def calcula_pontos_regra_avancada(rolados):
+    calculos = {'cinco_iguais': calcula_pontos_quina(rolados), 'full_house': calcula_pontos_full_house(rolados), 'quadra': calcula_pontos_quadra(rolados), 'sem_combinacao': calcula_pontos_soma(rolados), 'sequencia_alta': calcula_pontos_sequencia_alta(rolados), 'sequencia_baixa': calcula_pontos_sequencia_baixa(rolados)}
+    return calculos
